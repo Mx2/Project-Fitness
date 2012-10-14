@@ -1,9 +1,6 @@
 <?php foreach ($foods as $food):
-	echo $food['Meal'];
-?>- 
-<?php echo $food['Calories']; ?>
+	echo $food['meal'];
+?> -- <?php 
+	echo $food['calories']; ?>
 <?php endforeach; ?>
 <?php unset($food); ?>
-	
-	
-	
