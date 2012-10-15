@@ -8,3 +8,5 @@ class FoodController extends AppController {
     ));
     $this->set('foods', $var1);
     }
+}
+?>
