@@ -6,5 +6,7 @@
     <string name="dining_hall_question">What Dining Hall Are You At?</string>
     <string name="time_of_day_question">What Meal of the Day? </string>
     <string name="meals_and_calories">Here are the listed meals and calories: </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_food_list">FoodListActivity</string>
 
 </resources>
