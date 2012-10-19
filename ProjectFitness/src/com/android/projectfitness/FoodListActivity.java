@@ -27,7 +27,7 @@ import com.google.gson.JsonParser;
 public class FoodListActivity extends Activity {
 
 	ListView foodList;
-	String webserviceURL = "http://stardock.cs.virginia.edu/louslist/Courses/view/";
+	String webserviceURL = "http://plato.cs.virginia.edu/~mrd2eu/cakephp/Food/view/";
 	ArrayList<Food> values;
 	ArrayAdapter<Food> adapter;
 
@@ -50,7 +50,7 @@ public class FoodListActivity extends Activity {
 		values = new ArrayList<Food>();
 
 		// Adjust the URL with the appropriate parameters
-		String url = webserviceURL + "CS/1110?json";
+		String url = webserviceURL + "Runk/Breakfast?json";
 
 		// First parameter - Context
 		// Second parameter - Layout for the row
@@ -81,7 +81,7 @@ public class FoodListActivity extends Activity {
 			is = entity.getContent();
 
 		} catch (Exception e) {
-			Log.e("LousList", "Error in http connection " + e.toString());
+			Log.e("Food", "Error in http connection " + e.toString());
 		}
 
 		// convert response to string
@@ -96,7 +96,7 @@ public class FoodListActivity extends Activity {
 			is.close();
 			result = sb.toString();
 		} catch (Exception e) {
-			Log.e("LousList", "Error converting result " + e.toString());
+			Log.e("Food", "Error converting result " + e.toString());
 		}
 
 		return result;
@@ -127,7 +127,7 @@ public class FoodListActivity extends Activity {
 				}
 
 			} catch (Exception e) {
-				Log.e("LousList", "JSONPARSE:" + e.toString());
+				Log.e("Food", "JSONPARSE:" + e.toString());
 			}
 
 			values.clear();
