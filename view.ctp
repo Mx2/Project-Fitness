@@ -19,14 +19,14 @@ echo "]";
 else if(isset($_GET['xml'])) { ?>
 <foods> <?php
  foreach ($foods as $food): ?>
- <meal> <?php echo $food['meal']; ?> </meal> <calories> <?php echo $food['calories']; ?> </calories> 
+ <meal> <?php echo $food['Food']['meal']; ?> </meal> <calories> <?php echo $food['Food']['calories']; ?> </calories> 
 <?php endforeach; 
 unset($food); ?>
 </foods> <?php
 }
 else {
 foreach ($foods as $food): ?>
- <?php echo $food['meal']; ?>, <?php echo $food['calories']; ?>
+ <?php echo $food['Food']['meal']; ?>, <?php echo $food['Food']['calories']; ?>
 <?php endforeach; 
 unset($food);
 }
