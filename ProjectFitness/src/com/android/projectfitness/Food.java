@@ -3,47 +3,47 @@ package com.android.projectfitness;
 public class Food {
 	
 	public String[] Food;
-	public int Calories;
-	public String Dining_Hall;
-	public String Time;
-	public String Meal;
+	public int calories;
+	public String dining_hall;
+	public String time;
+	public String meal;
 
 	
 	public String toString() {
-		return Food + " " + Calories;
+		return meal + " " + calories;
 		//return Food.toString();
 	}
 
 	public String getMeal() {
-		return Meal;
+		return meal;
 	}
 
-	public void setMeal(String meal) {
-		Meal = meal;
+	public void setMeal(String Meal) {
+		meal = Meal;
 	}
 
 	public int getCalories() {
-		return Calories;
+		return calories;
 	}
 
-	public void setCalories(int calories) {
-		Calories = calories;
+	public void setCalories(int Calories) {
+		calories = Calories;
 	}
 
 	public String getDining_Hall() {
-		return Dining_Hall;
+		return dining_hall;
 	}
 
 	public void setDining_Hall(String dininghall) {
-		Dining_Hall = dininghall;
+		dining_hall = dininghall;
 	}
 
 	public String getTime() {
-		return Time;
+		return time;
 	}
 
-	public void setTime(String time) {
-		Time = time;
+	public void setTime(String Time) {
+		time = Time;
 	}
 
 }
