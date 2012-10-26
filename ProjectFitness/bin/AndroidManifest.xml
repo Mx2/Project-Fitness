@@ -1,7 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.projectfitness"
-    android:versionCode="1"
+       android:versionCode="1"
     android:versionName="1.0" >
+    
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_GPS" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION" />
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -11,7 +17,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".FoodListActivity"
             android:label="@string/title_activity_food_list" >
@@ -22,10 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_GPS" />
-	<uses-permission android:name="android.permission.ACCESS_LOCATION" />
 
 </manifest>

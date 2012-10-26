@@ -62,7 +62,7 @@ public class FoodListActivity extends Activity {
 		// Assign adapter to ListView
 		foodList.setAdapter(adapter);
 
-		new GetCoursesTask().execute(url);
+		new GetFoodsTask().execute(url);
 
 	}
 
@@ -103,7 +103,7 @@ public class FoodListActivity extends Activity {
 	}
 
 	// The definition of our task class
-	private class GetCoursesTask extends AsyncTask<String, Integer, String> {
+	private class GetFoodsTask extends AsyncTask<String, Integer, String> {
 		@Override
 		protected void onPreExecute() {
 		}
