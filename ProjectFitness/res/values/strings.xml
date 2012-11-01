@@ -8,5 +8,9 @@
     <string name="meals_and_calories">Here are the listed meals and calories: </string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_food_list">FoodListActivity</string>
+    <string name="food_diary_title">Your Food Diary</string>
+    <string name="meal_label">Meal</string>
+    <string name="calories_label">Calories</string>
+    <string name="diary_button">Submit</string>
 
 </resources>
