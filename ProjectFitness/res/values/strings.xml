@@ -12,5 +12,11 @@
     <string name="meal_label">Meal</string>
     <string name="calories_label">Calories</string>
     <string name="diary_button">Submit</string>
+    <string name="menu_title">Main Menu</string>
+    <string name="menu_message">Choose from the following options: </string>
+    <string name="list_button">Dining Hall Calorie Count</string>
+    <string name="diary_menu_button">Food Diary</string>
+    <string name="exercise_button">Exercise Calories Burnt </string>
+    
 
 </resources>
