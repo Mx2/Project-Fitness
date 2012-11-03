@@ -25,7 +25,7 @@ public class MenuActivity extends Activity {
 	private OnClickListener diaryListener = new OnClickListener() {
 		public void onClick(View v) {
 
-			Intent myIntent = new Intent(v.getContext(), FoodDiaryActivity.class);
+			Intent myIntent = new Intent(v.getContext(), DiaryViewActivity.class);
 		       startActivityForResult(myIntent, 0);
 			
 		}
