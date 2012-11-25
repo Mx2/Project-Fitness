@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">ProjectFitness</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_calories">Calories</string>
+    <string name="dining_hall_question">What Dining Hall Are You At?</string>
+    <string name="time_of_day_question">What Meal of the Day? </string>
+    <string name="meals_and_calories">Here are the listed meals and calories: </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_food_list">FoodListActivity</string>
+    <string name="food_diary_title">Your Food Diary</string>
+    <string name="title_activity_menu">Fit Menu</string>
+    <string name="title_maps">Fit Menu</string>
+    <string name="meal_label">Meal</string>
+    <string name="calories_label">Calories</string>
+    <string name="diary_button">Submit</string>
+    <string name="menu_message">Choose from the following options: </string>
+    <string name="list_button">Dining Hall Calorie Count</string>
+    <string name="diary_menu_button">Food Diary</string>
+    <string name="map_button">Dining Hall Locater</string>
+
+</resources>

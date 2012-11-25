@@ -1,0 +1,99 @@
+package android.fitatuva;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Point;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
+import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
+import com.google.android.maps.Projection;
+
+public class GoogleMap extends MapActivity implements LocationListener {
+	/** Called when the activity is first created. */
+
+	LocationManager location = null;
+	MapView mapView = null;
+	GeoPoint currentPoint = new GeoPoint(0,0);
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_map);
+		mapView = (MapView) findViewById(R.id.mapview);
+		mapView.setBuiltInZoomControls(true);
+		location = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+		location.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,
+				GoogleMap.this);
+	}
+
+	@Override
+	protected boolean isRouteDisplayed() {
+
+		return false;
+	}
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.get_coord:
+			showLocation();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.map_menu, menu);
+		return true;
+	}
+
+	public void showLocation() {
+		MapController mc = mapView.getController();
+		mc.setCenter(currentPoint);
+		
+		Context context = getApplicationContext();
+		CharSequence text = currentPoint.toString();
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast.makeText(context, text, duration).show();
+	}
+
+	
+	public void onLocationChanged(Location arg0) {
+		currentPoint = new GeoPoint((int)(arg0.getLatitude()*1000000), (int)(arg0.getLongitude()*1000000));
+		
+	}
+
+	
+	public void onProviderDisabled(String arg0) {
+		
+
+	}
+
+	
+	public void onProviderEnabled(String arg0) {
+		
+
+	}
+
+	
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+		
+
+	}
+
+}

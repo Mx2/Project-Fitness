@@ -1,0 +1,140 @@
+package com.android.projectfitness;
+
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
+import com.google.android.maps.MapView;
+import com.google.android.maps.MyLocationOverlay;
+import com.google.android.maps.Overlay;
+import com.google.android.maps.OverlayItem;
+
+public class GoogleMap extends MapActivity implements LocationListener{
+	/** Called when the activity is first created. */
+
+	LocationManager location = null;
+	MapView mapView = null;
+	GeoPoint runkPoint = new GeoPoint ((int)(38.028466 * 1000000),(int)(-78.520286 * 1000000));
+	OverlayItem overlayR = new OverlayItem(runkPoint, "Runk Dining Hall", "Eat here!");
+	GeoPoint newcPoint = new GeoPoint((int)(38.035807 * 1000000),(int)(-78.506681 * 1000000));
+	OverlayItem overlayN = new OverlayItem(newcPoint, "N2 Dining Hall", "Eat here!");
+	GeoPoint ohillPoint = new GeoPoint((int)(38.034759 * 1000000),(int)(-78.515221 * 1000000));
+	OverlayItem overlayO = new OverlayItem(ohillPoint, "OHill Dining Hall", "Eat here!");
+	GeoPoint currentPoint = new GeoPoint(38000000,-78000000);
+	MapController mc;
+	MyLocationOverlay myLocation;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_map);
+		
+		mapView = (MapView) findViewById(R.id.mapView);
+		mc = mapView.getController();
+		mc.setZoom(11);
+		mapView.setBuiltInZoomControls(true);
+		
+		myLocation = new MyLocationOverlay(this, mapView);
+		mapView.getOverlays().add(myLocation);
+		myLocation.enableMyLocation();
+		
+		myLocation.runOnFirstFix(new Runnable() {
+			public void run() {
+				mc.animateTo(myLocation.getMyLocation());
+			}
+			});
+		
+		List<Overlay> mapOverlays = mapView.getOverlays();
+		Drawable drawable = this.getResources().getDrawable(R.drawable.markerblue);
+		MapOverlay itemizedoverlay = new MapOverlay(drawable, this);
+		}
+		
+	
+
+	@Override
+	protected boolean isRouteDisplayed() {
+
+		return false;
+	}
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.get_coord:
+			showLocation();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu_map, menu);
+		return true;
+	}
+
+	public void showLocation() {
+		MapController mc = mapView.getController();
+		mc.setCenter(currentPoint);
+		
+		Context context = getApplicationContext();
+		CharSequence text = currentPoint.toString();
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast.makeText(context, text, duration).show();
+	}
+
+	
+	public void onLocationChanged(Location arg0) {
+		currentPoint = new GeoPoint((int)(arg0.getLatitude()*1000000), (int)(arg0.getLongitude()*1000000));
+		
+	}
+
+	
+	public void onProviderDisabled(String arg0) {
+		
+
+	}
+
+	
+	public void onProviderEnabled(String arg0) {
+		
+
+	}
+
+	
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+		
+
+	}
+
+
+@Override
+protected void onResume() {
+    super.onResume();
+    myLocation.enableMyLocation();
+}
+ 
+@Override
+protected void onPause() {
+    super.onPause();
+    myLocation.disableMyLocation();
+}
+
+	//		public void onLocationChanged(Location arg0) {
+	//			currentPoint = new GeoPoint((int)arg0.getLatitude()*1000000, (int)arg0.getLongitude()*1000000);
+	//			
+	//		}
+}

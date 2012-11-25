@@ -1,0 +1,7 @@
+package com.android.projectfitness;
+
+import com.google.android.maps.ItemizedOverlay;
+
+public class MapOverlay extends ItemizedOverlay{
+
+}
